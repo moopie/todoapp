@@ -1,54 +1,74 @@
-# React + TypeScript + Vite
+# Todo App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive todo application built with React, TypeScript, and Material-UI. This app helps you manage your tasks with a clean and intuitive interface.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- ✨ Add, complete, and delete todos
+- 💾 Persistent storage using localStorage
+- 🎨 Modern Material-UI design
+- 📱 Fully responsive layout
+- ⌨️ Keyboard support (press Enter to add a todo)
+- 🔒 Type-safe with TypeScript
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Prerequisites
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+- Node.js (version 14 or higher)
+- npm (comes with Node.js)
+
+### Installation
+
+1. Clone the repository:
+```bash
+git clone <repository-url>
+cd todoapp
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+2. Install dependencies:
+```bash
+npm install
 ```
+
+3. Start the development server:
+```bash
+npm run dev
+```
+
+4. Open your browser and navigate to `http://localhost:5173`
+
+## Usage
+
+### Adding a Todo
+1. Type your todo text in the input field
+2. Click the "Add" button or press Enter to add the todo
+
+### Managing Todos
+- ✅ Check/uncheck the checkbox to mark a todo as complete/incomplete
+- 🗑️ Click the delete icon to remove a todo
+- 📝 Completed todos will be struck through and grayed out
+
+### Data Persistence
+- All todos are automatically saved to your browser's localStorage
+- Your todos will persist even after closing the browser or refreshing the page
+
+## Technologies Used
+
+- React
+- TypeScript
+- Vite
+- Material-UI
+- Emotion (for styled components)
+
+## Development
+
+### Available Scripts
+
+- `npm run dev` - Start the development server
+- `npm run build` - Build the app for production
+- `npm run preview` - Preview the production build locally
+
+## License
+
+This project is open source and available under the MIT License.
