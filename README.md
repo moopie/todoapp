@@ -53,22 +53,6 @@ npm run dev
 - All todos are automatically saved to your browser's localStorage
 - Your todos will persist even after closing the browser or refreshing the page
 
-## Technologies Used
-
-- React
-- TypeScript
-- Vite
-- Material-UI
-- Emotion (for styled components)
-
-## Development
-
-### Available Scripts
-
-- `npm run dev` - Start the development server
-- `npm run build` - Build the app for production
-- `npm run preview` - Preview the production build locally
-
 ## License
 
 This project is open source and available under the MIT License.
