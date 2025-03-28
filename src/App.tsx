@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import {
   Container,
   Typography,
@@ -11,9 +11,32 @@ import {
 import { TodoItem } from './components/TodoItem';
 import { Todo } from './types/todo';
 
+const STORAGE_KEY = 'todos';
+
+// Type for the stored todo data
+type StoredTodo = Omit<Todo, 'createdAt'> & {
+  createdAt: string;
+};
+
 function App() {
-  const [todos, setTodos] = useState<Todo[]>([]);
+  const [todos, setTodos] = useState<Todo[]>(() => {
+    // Initialize todos from localStorage
+    const savedTodos = localStorage.getItem(STORAGE_KEY);
+    if (savedTodos) {
+      const parsedTodos: StoredTodo[] = JSON.parse(savedTodos);
+      return parsedTodos.map((todo) => ({
+        ...todo,
+        createdAt: new Date(todo.createdAt),
+      }));
+    }
+    return [];
+  });
   const [newTodo, setNewTodo] = useState('');
+
+  // Save todos to localStorage whenever they change
+  useEffect(() => {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(todos));
+  }, [todos]);
 
   const handleAddTodo = () => {
     if (newTodo.trim()) {
